@@ -50,10 +50,6 @@
   height: 325px;
   border-radius: 5px;
 }
-
-* {
-    box-sizing: border-box;
-  }
   
   /* Style the search field */
   div.DB input[type=text] {
@@ -63,6 +59,8 @@
     float: left;
     width: 30%;
     background: #f1f1f1;
+    margin-right: 100%;
+    margin-bottom: 10px;
   }
   
   /* Style the submit button */
@@ -76,6 +74,7 @@
     border: 1px solid grey;
     border-left: none; /* Prevent double borders */
     cursor: pointer;
+    margin-top: 10px;
   }
   
   div.DB button:hover {
