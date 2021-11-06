@@ -1,0 +1,40 @@
+.DB{
+    color:black;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  div.DB input[type=text] {
+    padding: 3px;
+    font-size: 17px;
+    border: 1px solid rgb(0, 0, 0);
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  div.DB button {
+    float: left;
+    width: 100px;
+    padding: 5px;
+    background: #bdbdbd;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  div.DB button:hover {
+    background: #434a50;
+  }
+  
+  /* Clear floats */
+  div.DB::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
