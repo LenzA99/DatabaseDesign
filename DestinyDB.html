@@ -7,9 +7,9 @@
 
 
         $dbhost = "localhost"; /*most of the time it's localhost*/
-        $username = "yourusername";
-        $password = "yourpassword";
-        $dbname = "mydatabase";
+        $username = "";
+        $password = "";
+        $dbname = "destinygearinfo";
 
         $mysql = mysqli_connect($dbhost, $username, $password, $dbname); //It connects
         $query = "SELECT * FROM armor,ghost,weapon WHERE MATCH( name ) AGAINST( "search term" )"; 
@@ -39,7 +39,7 @@
         <input type="text" class="form-control" placeholder="Item Name" value="">
         <h3>or</h3>
         <div class=GUNS>
-            <input type="checkbox" class="checkbox" id="chkGun" name="chkGun" value="Gun"/> Gun
+            <input type="radio" class="checkbox" id="chkGun" name="chk" value="Gun"/> Gun
             <label for="GunType" class="GT">Type:</label>
             <select name="GunType" id="Type-Select">
                 <option value="">--Please choose an option--</option>
@@ -81,7 +81,7 @@
             </select>
           </div>
           <div class="ARMOR">
-            <input type="checkbox" class="checkbox" id="chkArmor" name="chkArmor" value="Armor"/> Armor
+            <input type="radio" class="checkbox" id="chkArmor" name="chk" value="Armor"/> Armor
             <label for="ArmorClass" class="AC">Class:</label>
             <select name="ArmorClass" id="Class-Select">
                 <option value="">--Please choose an option--</option>
@@ -109,7 +109,7 @@
             </select>
           </div>
           <div class="GHOSTS">
-            <input type="checkbox" class="checkbox" id="chkGhost" name="chkGhost" value="Ghost"/> Ghost
+            <input type="radio" class="checkbox" id="chkGhost" name="chk" value="Ghost"/> Ghost
             <label for="GhostRarity" class="GR">Rarity:</label>
             <select name="GhostRarity" id="Rarity-Select">
                 <option value="">--Please choose an option--</option>

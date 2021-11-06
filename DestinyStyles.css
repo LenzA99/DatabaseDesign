@@ -86,7 +86,8 @@
     margin-top: 10px;
   }
   
-  div.DB button:hover {
+  div.DB button:hover 
+  {
     background: #434a50;
   }
   
@@ -96,4 +97,38 @@
     clear: both;
     display: table;
   }
+  /*
+  input[type = "radio"]
+  {
+    display: none;
+  }
+  input[type = "radio"] + label
+  {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    position: relative;
+
+  }
+  input[type = "radio"] :checked + label
+  {
+    background-color: #212121;
+  }
+  input[type = "radio"] :checked + label::after
+  {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 5px;
+    border: 1px solid #fff;
+    left: 0px;
+    right: 0px;
+    top: -6px;
+    bottom: 0px;
+    margin: auto;
+    transform: rotate(45deg);
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }*/
 
