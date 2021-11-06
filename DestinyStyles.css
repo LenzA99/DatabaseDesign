@@ -1,57 +1,91 @@
 .DB{
-    color:black;
+  color:black;
 }
 .GT{
-    padding: 60px 9px 80px 34px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
-
+  padding: 60px 9px 80px 34px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .DT{
-    padding: 60px 0px 80px 23px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
-
+  padding: 60px 0px 80px 23px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .WR{
-    padding: 60px 1px 80px 20px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
-
+  padding: 60px 1px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .AC{
-    padding: 60px 6px 80px 20px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
-
+  padding: 60px 6px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .AT{
-    padding: 60px 58px 80px 22px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
-
+  padding: 60px 58px 80px 22px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .GR{
-    padding: 60px 0px 80px 24px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
+  padding: 60px 0px 80px 24px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
 .AR{
-    padding: 60px 0px 80px 20px;
-    width: 95%;
-    max-width: 80px;
-    height: 325px;
-    border-radius: 5px;
+  padding: 60px 0px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
 }
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  div.DB input[type=text] {
+    padding: 3px;
+    font-size: 17px;
+    border: 1px solid rgb(0, 0, 0);
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  div.DB button {
+    float: left;
+    width: 100px;
+    padding: 5px;
+    background: #bdbdbd;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  div.DB button:hover {
+    background: #434a50;
+  }
+  
+  /* Clear floats */
+  div.DB::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
