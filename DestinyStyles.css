@@ -1,6 +1,15 @@
 .DB{
   color:black;
 }
+.GUNS{
+  margin-bottom: 10px;
+}
+.ARMOR{
+  margin-bottom: 10px;
+}
+.GHOSTS{
+  margin-bottom: 10px;
+}
 .GT{
   padding: 60px 9px 80px 34px;
   width: 95%;
