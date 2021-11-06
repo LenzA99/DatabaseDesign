@@ -1,4 +1,22 @@
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        /*Creating variables*/
+        $armor = $_POST["armor];
+        $weapopn = $_POST["weapon"];
+        $ghost = $_POST["age"];
 
+
+        $dbhost = "localhost"; /*most of the time it's localhost*/
+        $username = "yourusername";
+        $password = "yourpassword";
+        $dbname = "mydatabase";
+
+        $mysql = mysqli_connect($dbhost, $username, $password, $dbname); //It connects
+        $query = "SELECT * FROM armor,ghost,weapon WHERE MATCH( name ) AGAINST( "search term" )"; 
+        $query = "SELECT * FROM armor,ghost,weapon WHERE MATCH VALUES $name, $address, $age" AGAINST VALUES $name, $address, $age";
+        mysqli_query($mysql, $query);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

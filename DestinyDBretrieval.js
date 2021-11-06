@@ -5,3 +5,6 @@ $('div .checkbox').click(function () {
      });
      $(this).attr('checked', checkedState);
 });
+
+SELECT columns FROM table WHERE MATCH( columns ) AGAINST( "search term" );
+SELECT * FROM armor,ghost,weapon WHERE MATCH( name ) AGAINST( "search term" );  
