@@ -1,6 +1,56 @@
 .DB{
-    color:black;
+  color:black;
 }
+.GT{
+  padding: 60px 9px 80px 34px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.DT{
+  padding: 60px 0px 80px 23px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.WR{
+  padding: 60px 1px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AC{
+  padding: 60px 6px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AT{
+  padding: 60px 58px 80px 22px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.GR{
+  padding: 60px 0px 80px 24px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AR{
+  padding: 60px 0px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+
 * {
     box-sizing: border-box;
   }
@@ -38,3 +88,4 @@
     clear: both;
     display: table;
   }
+
