@@ -5,6 +5,9 @@
         Destiny Database
     </title>
     <link rel="stylesheet" href="DestinyStyles.css">
+    <script src="DestinyDBretrieval.js"></script>
+    
+
 </head>
 <body>
     <h1>
@@ -18,8 +21,7 @@
         <input type="text" class="form-control" placeholder="Item Name" value="">
         <h3>or</h3>
         <div>
-            <input type="checkbox" id="Gun" name="Gun">
-            <label for="Gun">Gun</label>
+            <input type="checkbox" class="checkbox" id="chkGun" name="chkGun" value="Gun"/> Gun
             <label for="GunType">Type:</label>
             <select name="GunType" id="Type-Select">
                 <option value="">--Please choose an option--</option>
@@ -61,8 +63,7 @@
             </select>
           </div>
           <div>
-            <input type="checkbox" id="Armor" name="Armor">
-            <label for="Armor">Armor</label>
+            <input type="checkbox" class="checkbox" id="chkArmor" name="chkArmor" value="Armor"/> Armor
             <label for="ArmorClass">Class:</label>
             <select name="ArmorClass" id="Class-Select">
                 <option value="">--Please choose an option--</option>
@@ -90,8 +91,7 @@
             </select>
           </div>
           <div>
-            <input type="checkbox" id="Ghost" name="Ghost">
-            <label for="Ghost">Ghost</label>
+            <input type="checkbox" class="checkbox" id="chkGhost" name="chkGhost" value="Ghost"/> Ghost
             <select name="GhostRarity" id="Rarity-Select">
                 <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
@@ -101,5 +101,4 @@
           </div>
     </div>
 </body>
-<script src="DestinyDBretrieval.js"></script>
 </html>
