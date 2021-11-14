@@ -1,26 +1,28 @@
 <?php
-    // (A) DATABASE CONFIG - CHANGE TO YOUR OWN!
-    define("DB_HOST", "localhost");
-    define("DB_NAME", "destinygearinfo");
-    define("DB_CHARSET", "utf8");
-    define("DB_USER", "root");
-    define("DB_PASSWORD", "2206Snow!!!!");
- 
-// (B) CONNECT TO DATABASE
-    try {
-        $pdo = new PDO(
-            "mysql:host=".DB_HOST.";charset=".DB_CHARSET.";dbname=".DB_NAME,
-             DB_USER, DB_PASSWORD, [
-             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]
-        );
-    } catch (Exception $ex) { exit($ex->getMessage()); }
-    echo($research = "SELECT * FROM 'weapon'");
- //(C) SEARCH
-    $stmt = $pdo->prepare("SELECT * FROM 'ghost', 'armor', 'weapon' WHERE 'Weapon_Name', 'Armor_Name', 'Ghost_Name' LIKE ? ");
-    $stmt->execute(["%".$_POST["search"]."%", "%".$_POST["search"]."%", "%".$_POST["search"]."%"]);
-    $results = $stmt->fetchAll();
-    if (isset($_POST["ajax"])) { echo json_encode($results); } 
+    $username = "root";
+    $password = "2206Snow!!!!";
+    $database = "destinygearinfo";
+    $mysqli = new mysqli("localhost", $username, $password, $database);
+    
+    $query = "SELECT * FROM weapon";
+    echo "<b> <center>Database Output</center> </b> <br> <br>";
+    
+    if ($result = $mysqli->query($query)) {
+    
+        while ($row = $result->fetch_assoc()) {
+            $field1name = $row["col1"];
+            $field2name = $row["col2"];
+            $field3name = $row["col3"];
+            $field4name = $row["col4"];
+            $field5name = $row["col5"];
+    
+            echo '<b>'.$field1name.$field2name.'</b><br />';
+            echo $field5name.'<br />';
+            echo $field5name.'<br />';
+            echo $field5name;
+        }
+    
+    /*freeresultset*/
+    $result->free();
 
    ?>

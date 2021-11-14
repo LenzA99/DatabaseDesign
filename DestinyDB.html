@@ -100,22 +100,8 @@
                 <option value="Exotic">Exotic</option>
             </select>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" href = "DestinyResults.html">Submit</button>
         </form> 
-    </div>
-    <div id="results">
-    <?php
-    // (B) PROCESS SEARCH WHEN FORM SUBMITTED
-    if (isset($_POST["search"])) {
-    // (B1) SEARCH FOR USERS
-    require "searchdb.php";
-    // (B2) DISPLAY RESULTS
-    if (count($results) > 0) { foreach ($results as $r) {
-        printf("<div>%s - %s</div>", $r["Armor_Name"] or $r["Weapon_Name"] or $r['Ghost_Name']);
-    }} else { echo "No results found"; }
-    }
-    echo "<h2>" . $research . "</h2>";
-    ?>
     </div>
 </body>
 
