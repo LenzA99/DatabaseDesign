@@ -16,9 +16,11 @@
             ]
         );
     } catch (Exception $ex) { exit($ex->getMessage()); }
-
-// (C) SEARCH
-    $stmt = $pdo->prepare("SELECT * FROM 'ghost', 'armor', 'weapon' WHERE 'Weapon_Name', 'Armor_Name', 'Ghost_Name' LIKE ");
+    echo($research = "SELECT * FROM 'weapon'");
+ //(C) SEARCH
+    $stmt = $pdo->prepare("SELECT * FROM 'ghost', 'armor', 'weapon' WHERE 'Weapon_Name', 'Armor_Name', 'Ghost_Name' LIKE ? ");
     $stmt->execute(["%".$_POST["search"]."%", "%".$_POST["search"]."%", "%".$_POST["search"]."%"]);
     $results = $stmt->fetchAll();
-    if (isset($_POST["ajax"])) { echo json_encode($results); }
+    if (isset($_POST["ajax"])) { echo json_encode($results); } 
+
+   ?>
