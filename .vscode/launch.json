@@ -8,7 +8,14 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/socce/Documents/GitHub/DatabaseDesign/DestinyDB.html",
+            "url": "file:///C:/Users/socce/Documents/GitHub/DatabaseDesign/TESTSTUFF/DestinyTest.html",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "file:///C:/Users/socce/Documents/GitHub/DatabaseDesign/DestinyDB.php",
             "webRoot": "${workspaceFolder}"
         }
     ]
