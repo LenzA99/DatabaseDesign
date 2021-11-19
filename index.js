@@ -1,9 +1,9 @@
 const express = require("express");
-const mysql = require("mysql");
+//const mysql = require("mysql");
 const ejs = require("ejs");
 
 // Create express app
-const app = express();
+const app = new express();
 
 // Create a database connection configuration
 const db = mysql.createConnection({
