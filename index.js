@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/readsearch", (req, res) => {
-var empt = 'index.ejs'.form1.text.value;
+/*var empt = document.form1.text.value; */
 var GT = document.getElementById("GunType");
 var GunType = GT.text;
 var DT = document.getElementById("DMGType");
@@ -47,153 +47,55 @@ var AT = document.getElementById("ArmorType");
 var ArmorType = AT.text;
 var RI = document.getElementById("RarityID");
 var RarityID = RI.text;
+var sql;
 
 if (empt !== "" && checkemp == ture){
 
 } else if (empt == ""){
   switch (checkbox.id){
     case 'Armor':
-      /*if(ArmorClass == 'Hunter'){
-
+      if (RI.text == 'Any' && AT.text != 'Any' && AC.text != 'Any'){
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [ArmorType, ArmorClass]
+      }else if(RI.text != 'Any' && AT.text == 'Any' && AC.text != 'Any'){
+        sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?' [ArmorCLass, RarityID]
+      }else if (RI.text != 'Any' && AT.text != 'Any' && AC.text == 'Any'){
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Rarity_ID = ?' [ArmorType, RarityID]
+      }else if (RI.text == 'Any' && AT.text == 'Any' && AC.text != 'Any'){
+        sql = 'SELECT * FROM armor WHERE Class_ID = ?' [ArmorCLass]
+      }else if (RI.text != 'Any' && AT.text == 'Any' && AC.text == 'Any'){
+        sql = 'SELECT * FROM armor WHERE Rarity_ID = ?' [RarityID]
+      }else if (RI.text == 'Any' && AT.text != 'Any' && AC.text == 'Any'){
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?' [ArmorType]
+      }else if(RI.text == 'Any' && AT.text == 'Any' && AC.text == 'Any'){
+        sql = 'SELECT * FROM armor'
+      }else{
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?' [ArmorType, ArmorCLass, RarityID]
       }
-      else if(ArmorClass == 'Warlock'){
-
-      }
-      else if(ArmorClass == 'Titan'){
-
-      }
-      else{
-
-      }
-      if(ArmorType == 'Helmet'){
-
-      }
-      else if(ArmorType == 'Chest'){
-
-      }
-      else if(ArmorType == 'Legs'){
-
-      }
-      else if(ArmorType == 'Gauntlets'){
-
-      }
-      else if(ArmorType == 'ClassItem'){
-
-      }
-      else{
-
-      }
-      if(RarityID == 'Legendary'){
-
-      }
-      else if(RarityID == 'Exotic'){
-
-      }
-      else{
-
-      }*/
       break;
     case 'Weapon':
-      /*if(GunType == 'Auto Rifle'){
-
-      }
-      else if(GunType == 'Hand Canon'){
-
-      }
-      else if(GunType == 'Scout Rifle'){
-
-      }
-      else if(GunType == 'Pulse Rifle'){
-
-      }
-      else if(GunType == 'Sniper Rifle'){
-
-      }
-      else if(GunType == 'Fusion Rifle'){
-
-      }
-      else if(GunType == 'Linear Fusion Rifle'){
-
-      }
-      else if(GunType == 'Submachine Gun'){
-
-      }
-      else if(GunType == 'Machine Gun'){
-
-      }
-      else if(GunType == 'Trace Rifle'){
-
-      }
-      else if(GunType == 'Grenade Launcher'){
-
-      }
-      else if(GunType == 'Heavy Grenade Launcher'){
-
-      }
-      else if(GunType == 'Rocket Launcher'){
-
-      }
-      else if(GunType == 'Shotgun'){
-
-      }
-      else if(GunType == 'Sidearm'){
-
-      }
-      else if(GunType == 'Bow'){
-
-      }
-      else if(GunType == 'Sword'){
-
-      }
-      else{
-
-      }
-      if(DMGTYPE == 'Kinetic'){
-
-      }
-      else if(DMGTYPE == 'Void'){
-
-      }
-      else if(DMGTYPE == 'Arc'){
-
-      }
-      else if(DMGTYPE == 'Solar'){
-
-      }
-      else if(DMGTYPE == 'Stasis'){
-
-      }
-      else{
-
-      }
-      if(RarityID == 'Legendary'){
-
-      }
-      else if(RarityID == 'Exotic'){
-
-      }
-      else{
-
-      }*/
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?' [GunType, ArmorCLass, RarityID]
 
       break;
     case 'Ghost':
-      /*if (RarityID == 'Legendary'){
+       sql = 'SELECT * FROM ghost WHERE Armor_Type ==  ?, Class_ID == ? , Rarity_ID == ?' [ArmorType, ArmorCLass, RarityID]
 
-      } else if(RarityID == 'Exotic'){
-
-      }*/
       break;
     default:
-      var checkemp = true;
+       checkemp = true;
       break;
   }
 } else{}
+db.query(sql, (err, result) => {
+  if (err) {
+    throw err;
+  }
+  res.render("readData", { data: result });
+});
 });
         
 
 
-app.get("/readsearch", (req, res) => {
+/*app.get("/readsearch", (req, res) => {
   let sql = `SELECT * FROM weapon, armor, ghost`;
   db.query(sql, (err, result) => {
     if (err) {
@@ -201,7 +103,7 @@ app.get("/readsearch", (req, res) => {
     }
     res.render("readData", { data: result });
   });
-});
+});*/
 
 // Setup server ports
 const PORT = process.env.PORT || 3000;
