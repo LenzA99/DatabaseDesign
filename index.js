@@ -9,7 +9,7 @@ const app = new express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "2206Snow!!!!",
+  password: "GEMMAMINI97",
   database: "destinygearinfo", // comment out if running example 1
 });
 
