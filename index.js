@@ -3,13 +3,13 @@ const mysql = require("mysql");
 const ejs = require("ejs");
 
 // Create express app
-const app = new express();
+const app = express();
 
 // Create a database connection configuration
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "GEMMAMINI97",
+  password: "2206Snow!!!!",
   database: "destinygearinfo", // comment out if running example 1
 });
 
@@ -36,16 +36,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/readsearch", (req, res) => {
-/*var empt = document.form1.text.value; */
-var GT = document.getElementById("GunType");
+var empt = document.form1.text.value; 
+var GT = req.body.GunType;
 var GunType = GT.text;
-var DT = document.getElementById("DMGType");
+var DT = req.body.DMGType;
 var DMGType = DT.text;
-var AC = document.getElementById("ArmorClass");
+var AC = req.body.ArmorClass
 var ArmorClass = AC.text;
-var AT = document.getElementById("ArmorType");
+var AT = req.body.ArmorType;
 var ArmorType = AT.text;
-var RI = document.getElementById("RarityID");
+var RI = req.body.RarityID;
 var RarityID = RI.text;
 var sql;
 
@@ -61,7 +61,7 @@ if (empt !== "" && checkemp == ture){
       }else if (RI.text != 'Any' && AT.text != 'Any' && AC.text == 'Any'){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Rarity_ID = ?' [ArmorType, RarityID]
       }else if (RI.text == 'Any' && AT.text == 'Any' && AC.text != 'Any'){
-        sql = 'SELECT * FROM armor WHERE Class_ID = ?' [ArmorCLass]
+        sql = 'SELECT * FROM armor WHERE Class_ID = ?' [ArmorClass]
       }else if (RI.text != 'Any' && AT.text == 'Any' && AC.text == 'Any'){
         sql = 'SELECT * FROM armor WHERE Rarity_ID = ?' [RarityID]
       }else if (RI.text == 'Any' && AT.text != 'Any' && AC.text == 'Any'){
@@ -69,7 +69,7 @@ if (empt !== "" && checkemp == ture){
       }else if(RI.text == 'Any' && AT.text == 'Any' && AC.text == 'Any'){
         sql = 'SELECT * FROM armor'
       }else{
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?' [ArmorType, ArmorCLass, RarityID]
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?' [ArmorType, ArmorClass, RarityID]
       }
       break;
     case 'Weapon':
