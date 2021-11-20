@@ -16,7 +16,7 @@ const app = new express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "2206Snow!!!!",
+  password: "GEMMAMINI97",
   database: "destinygearinfo", // comment out if running example 1
 });
 
@@ -45,11 +45,150 @@ app.get("/", (req, res) => {
 var empt = document.form1.text.value;
 if (empt !== ""){
 
-} else if (){
-  switch (){
+} else if (empt == ""){
+  switch (checkbox.id){
     case 'Armor':
+      if('ArmorClass' == 'Any'){
+
+      }
+      if('ArmorClass' == 'Hunter'){
+
+      }
+      if('ArmorClass' == 'Warlock'){
+
+      }
+      if('ArmorClass' == 'Titan'){
+
+      }
+      else{
+
+      }
+      if('ArmorType' == 'Any'){
+
+      }
+      if('ArmorType' == 'Helmet'){
+
+      }
+      if('ArmorType' == 'Chest'){
+
+      }
+      if('ArmorType' == 'Legs'){
+
+      }
+      if('ArmorType' == 'Gauntlets'){
+
+      }
+      if('ArmorType' == 'ClassItem'){
+
+      }
+      else{
+
+      }
+      if('ArmorRarity' == 'Any'){
+
+      }
+      if('ArmorRarity' == 'Legendary'){
+
+      }
+      if('ArmorRarity' == 'Exotic'){
+
+      }
+      else{
+
+      }
       break;
     case 'Weapon':
+      if('GunType' = 'Any'){
+
+      }
+      if('GunType' = 'Auto Rifle'){
+
+      }
+      if('GunType' = 'Hand Canon'){
+
+      }
+      if('GunType' = 'Scout Rifle'){
+
+      }
+      if('GunType' = 'Pulse Rifle'){
+
+      }
+      if('GunType' = 'Sniper Rifle'){
+
+      }
+      if('GunType' = 'Fusion Rifle'){
+
+      }
+      if('GunType' = 'Linear Fusion Rifle'){
+
+      }
+      if('GunType' = 'Submachine Gun'){
+
+      }
+      if('GunType' = 'Machine Gun'){
+
+      }
+      if('GunType' = 'Trace Rifle'){
+
+      }
+      if('GunType' = 'Grenade Launcher'){
+
+      }
+      if('GunType' = 'Heavy Grenade Launcher'){
+
+      }
+      if('GunType' = 'Rocket Launcher'){
+
+      }
+      if('GunType' = 'Shotgun'){
+
+      }
+      if('GunType' = 'Sidearm'){
+
+      }
+      if('GunType' = 'Bow'){
+
+      }
+      if('GunType' = 'Sword'){
+
+      }
+      else{
+
+      }
+      if('DMGType' = 'Any'){
+
+      }
+      if('DMGType' = 'Kinetic'){
+
+      }
+      if('DMGType' = 'Void'){
+
+      }
+      if('DMGType' = 'Arc'){
+
+      }
+      if('DMGType' = 'Solar'){
+
+      }
+      if('DMGType' = 'Stasis'){
+
+      }
+      else{
+
+      }
+      if('WeaponRarity' == 'Any'){
+
+      }
+      if('WeaponRarity' == 'Legendary'){
+
+      }
+      if('WeaponRarity' == 'Exotic'){
+
+      }
+      else{
+
+      }
+
       break;
     case 'Ghost':
       break;
@@ -57,10 +196,10 @@ if (empt !== ""){
       var checkemp = true;
       break;
   }
-} else (empt === "" && checkemp === true ){
+} else (empt === "" && checkemp === true )
+        
 
-}
-{
+
 app.get("/readsearch", (req, res) => {
   let sql = `SELECT * FROM weapon, armor, ghost`;
   db.query(sql, (err, result) => {
