@@ -55,7 +55,7 @@ if (empt !== "" && checkemp == ture){
   switch (checkbox.id){
     case 'Armor':
       if (RI.text == 'Any' && AT.text != 'Any' && AC.text != 'Any'){
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [ArmorType, ArmorCLass]
+        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [ArmorType, ArmorClass]
       }else if(RI.text != 'Any' && AT.text == 'Any' && AC.text != 'Any'){
         sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?' [ArmorCLass, RarityID]
       }else if (RI.text != 'Any' && AT.text != 'Any' && AC.text == 'Any'){
