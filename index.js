@@ -40,7 +40,7 @@ app.get("/readsearch", (req, res) => {
 var GT = document.getElementById("GunType");
 var GunType = GT.text;
 var DT = document.getElementById("DMGType");
-var DMGTYPE = DT.text;
+var DMGType = DT.text;
 var AC = document.getElementById("ArmorClass");
 var ArmorClass = AC.text;
 var AT = document.getElementById("ArmorType");
@@ -73,12 +73,32 @@ if (empt !== "" && checkemp == ture){
       }
       break;
     case 'Weapon':
-       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?' [GunType, ArmorCLass, RarityID]
+      if (RI.text == 'Any' && DT.text != 'Any' && GT.text != 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ?' [GunType, DMGType]
+      }else if(RI.text != 'Any' && DT.text == 'Any' && GT.text != 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Rarity_ID == ?' [GunType, RarityID]
+      }else if (RI.text != 'Any' && DT.text != 'Any' && GT.text == 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ? , Rarity_ID == ?' [DMGType, RarityID]
+      }else if (RI.text == 'Any' && DT.text == 'Any' && GT.text != 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?' [GunType]
+      }else if (RI.text != 'Any' && DT.text == 'Any' && GT.text == 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Rarity_ID == ?' [RarityID]
+      }else if (RI.text == 'Any' && DT.text != 'Any' && GT.text == 'Any'){
+        sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ?' [DMGType]
+      }else if(RI.text == 'Any' && DT.text == 'Any' && GT.text == 'Any'){
+        sql = 'SELECT * FROM weapon'
+      }else{
+        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?' [GunType, DMGType, RarityID]
 
+      }
       break;
     case 'Ghost':
-       sql = 'SELECT * FROM ghost WHERE Armor_Type ==  ?, Class_ID == ? , Rarity_ID == ?' [ArmorType, ArmorCLass, RarityID]
-
+      if (RI.text == 'Any'){
+        sql = 'SELECT * FROM ghost'
+      }
+      else{
+      sql = 'SELECT * FROM ghost WHERE Rarity_ID == ?' [RarityID]
+      }
       break;
     default:
        checkemp = true;
