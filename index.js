@@ -2,13 +2,6 @@ const express = require("express");
 const mysql = require("mysql");
 const ejs = require("ejs");
 
-/*var armor;
-var ghost;
-var weapon;
-var Rarity_ID;
-var Armor_Name;
-var */
-
 // Create express app
 const app = new express();
 
@@ -16,7 +9,7 @@ const app = new express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "GEMMAMINI97",
+  password: "2206Snow!!!!",
   database: "destinygearinfo", // comment out if running example 1
 });
 
@@ -42,161 +35,161 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-var empt = document.form1.text.value;
-if (empt !== ""){
+app.get("/readsearch", (req, res) => {
+var empt = 'index.ejs'.form1.text.value;
+var GT = document.getElementById("GunType");
+var GunType = GT.text;
+var DT = document.getElementById("DMGType");
+var DMGTYPE = DT.text;
+var AC = document.getElementById("ArmorClass");
+var ArmorClass = AC.text;
+var AT = document.getElementById("ArmorType");
+var ArmorType = AT.text;
+var RI = document.getElementById("RarityID");
+var RarityID = RI.text;
+
+if (empt !== "" && checkemp == ture){
 
 } else if (empt == ""){
   switch (checkbox.id){
     case 'Armor':
-      if('ArmorClass' == 'Any'){
+      /*if(ArmorClass == 'Hunter'){
 
       }
-      if('ArmorClass' == 'Hunter'){
+      else if(ArmorClass == 'Warlock'){
 
       }
-      if('ArmorClass' == 'Warlock'){
-
-      }
-      if('ArmorClass' == 'Titan'){
+      else if(ArmorClass == 'Titan'){
 
       }
       else{
 
       }
-      if('ArmorType' == 'Any'){
+      if(ArmorType == 'Helmet'){
 
       }
-      if('ArmorType' == 'Helmet'){
+      else if(ArmorType == 'Chest'){
 
       }
-      if('ArmorType' == 'Chest'){
+      else if(ArmorType == 'Legs'){
 
       }
-      if('ArmorType' == 'Legs'){
+      else if(ArmorType == 'Gauntlets'){
 
       }
-      if('ArmorType' == 'Gauntlets'){
-
-      }
-      if('ArmorType' == 'ClassItem'){
+      else if(ArmorType == 'ClassItem'){
 
       }
       else{
 
       }
-      if('ArmorRarity' == 'Any'){
+      if(RarityID == 'Legendary'){
 
       }
-      if('ArmorRarity' == 'Legendary'){
-
-      }
-      if('ArmorRarity' == 'Exotic'){
+      else if(RarityID == 'Exotic'){
 
       }
       else{
 
-      }
+      }*/
       break;
     case 'Weapon':
-      if('GunType' = 'Any'){
+      /*if(GunType == 'Auto Rifle'){
 
       }
-      if('GunType' = 'Auto Rifle'){
+      else if(GunType == 'Hand Canon'){
 
       }
-      if('GunType' = 'Hand Canon'){
+      else if(GunType == 'Scout Rifle'){
 
       }
-      if('GunType' = 'Scout Rifle'){
+      else if(GunType == 'Pulse Rifle'){
 
       }
-      if('GunType' = 'Pulse Rifle'){
+      else if(GunType == 'Sniper Rifle'){
 
       }
-      if('GunType' = 'Sniper Rifle'){
+      else if(GunType == 'Fusion Rifle'){
 
       }
-      if('GunType' = 'Fusion Rifle'){
+      else if(GunType == 'Linear Fusion Rifle'){
 
       }
-      if('GunType' = 'Linear Fusion Rifle'){
+      else if(GunType == 'Submachine Gun'){
 
       }
-      if('GunType' = 'Submachine Gun'){
+      else if(GunType == 'Machine Gun'){
 
       }
-      if('GunType' = 'Machine Gun'){
+      else if(GunType == 'Trace Rifle'){
 
       }
-      if('GunType' = 'Trace Rifle'){
+      else if(GunType == 'Grenade Launcher'){
 
       }
-      if('GunType' = 'Grenade Launcher'){
+      else if(GunType == 'Heavy Grenade Launcher'){
 
       }
-      if('GunType' = 'Heavy Grenade Launcher'){
+      else if(GunType == 'Rocket Launcher'){
 
       }
-      if('GunType' = 'Rocket Launcher'){
+      else if(GunType == 'Shotgun'){
 
       }
-      if('GunType' = 'Shotgun'){
+      else if(GunType == 'Sidearm'){
 
       }
-      if('GunType' = 'Sidearm'){
+      else if(GunType == 'Bow'){
 
       }
-      if('GunType' = 'Bow'){
-
-      }
-      if('GunType' = 'Sword'){
+      else if(GunType == 'Sword'){
 
       }
       else{
 
       }
-      if('DMGType' = 'Any'){
+      if(DMGTYPE == 'Kinetic'){
 
       }
-      if('DMGType' = 'Kinetic'){
+      else if(DMGTYPE == 'Void'){
 
       }
-      if('DMGType' = 'Void'){
+      else if(DMGTYPE == 'Arc'){
 
       }
-      if('DMGType' = 'Arc'){
+      else if(DMGTYPE == 'Solar'){
 
       }
-      if('DMGType' = 'Solar'){
-
-      }
-      if('DMGType' = 'Stasis'){
+      else if(DMGTYPE == 'Stasis'){
 
       }
       else{
 
       }
-      if('WeaponRarity' == 'Any'){
+      if(RarityID == 'Legendary'){
 
       }
-      if('WeaponRarity' == 'Legendary'){
-
-      }
-      if('WeaponRarity' == 'Exotic'){
+      else if(RarityID == 'Exotic'){
 
       }
       else{
 
-      }
+      }*/
 
       break;
     case 'Ghost':
+      /*if (RarityID == 'Legendary'){
+
+      } else if(RarityID == 'Exotic'){
+
+      }*/
       break;
     default:
       var checkemp = true;
       break;
   }
-} else (empt === "" && checkemp === true )
+} else{}
+});
         
 
 

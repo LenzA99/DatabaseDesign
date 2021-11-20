@@ -21,7 +21,7 @@
         Please select search criteria
     </h2>
     <div class = "DB" id = "DBRapp">
-        <form action="/readsearch" method="get">
+        <form name="form1" action="/readsearch" method="get">
         <h3>Search</h3>
         <input type="text" class= "search" name="search" placeholder="Item Name">
         <h3>or</h3>
@@ -29,7 +29,6 @@
             <input type="radio" class="checkbox" id="chkGun" name="chk" value="Gun"/> Gun
             <label for="GunType" class="GT">Type:</label>
             <select name="GunType" id="Type-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Auto Rifle">Auto Rifle</option>
                 <option value="Hand Cannon">Hand Cannon</option>
@@ -51,7 +50,6 @@
             </select>
             <label for="DMGType" class="DT">Damage Type:</label>
             <select name="DMGType" id="Damage-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Kinetic">Kinetic</option>
                 <option value="Void">Void</option>
@@ -61,7 +59,6 @@
             </select>
             <label for="WeaponRarity" class="WR">Rarity:</label>
             <select name="WeaponRarity" id="Rarity-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Legendary">Legendary</option>
                 <option value="Exotic">Exotic</option>
@@ -71,7 +68,6 @@
             <input type="radio" class="checkbox" id="chkArmor" name="chk" value="Armor"/> Armor
             <label for="ArmorClass" class="AC">Class:</label>
             <select name="ArmorClass" id="Class-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Hunter">Hunter</option>
                 <option value="Warlock">Warlock</option>
@@ -79,7 +75,6 @@
             </select>
             <label for="ArmorType" class="AT">Type:</label>
             <select name="ArmorType" id="Type-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Helmet">Helmet</option>
                 <option value="Chest">Chest</option>
@@ -89,7 +84,6 @@
             </select>
             <label for="ArmorRarity" class="AR">Rarity:</label>
             <select name="ArmorRarity" id="Rarity-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Legendary">Legendary</option>
                 <option value="Exotic">Exotic</option>
@@ -99,7 +93,6 @@
             <input type="radio" class="checkbox" id="chkGhost" name="chk" value="Ghost"/> Ghost
             <label for="GhostRarity" class="GR">Rarity:</label>
             <select name="GhostRarity" id="Rarity-Select">
-                <option value="">--Please choose an option--</option>
                 <option value="Any">Any</option>
                 <option value="Legendary">Legendary</option>
                 <option value="Exotic">Exotic</option>
