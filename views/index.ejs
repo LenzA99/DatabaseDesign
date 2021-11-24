@@ -23,10 +23,10 @@
     <div class = "DB" id = "DBRapp">
         <form name="form1" action="/readsearch" method="get">
         <h3>Search</h3>
-        <input type="text" class= "search" name="search" placeholder="Item Name">
+        <input type="text" class= "search" name="search" id="search" placeholder="Item Name">
         <h3>or</h3>
         <div class=GUNS>
-            <input type="radio" class="checkbox" id="chkGun" name="chk" value="Gun"/> Gun
+            <input type="radio" class="checkbox" id="chk" name="chk" value="Gun"/> Gun
             <label for="GunType" class="GT">Type:</label>
             <select name="GunType" id="GunType">
                 <option value="Any">Any</option>
@@ -65,7 +65,7 @@
             </select>
           </div>
           <div class="ARMOR">
-            <input type="radio" class="checkbox" id="chkArmor" name="chk" value="Armor"/> Armor
+            <input type="radio" class="checkbox" id="chk" name="chk" value="Armor"/> Armor
             <label for="ArmorClass" class="AC">Class:</label>
             <select name="ArmorClass" id="ArmorClass">
                 <option value="Any">Any</option>
@@ -90,15 +90,15 @@
             </select>
           </div>
           <div class="GHOSTS">
-            <input type="radio" class="checkbox" id="chkGhost" name="chk" value="Ghost"/> Ghost
+            <input type="radio" class="checkbox" id="chk" name="chk" value="Ghost"/> Ghost
             <label for="GhostRarity" class="GR">Rarity:</label>
-            <select name="GhostRarity" id="RarityID">
+            <select name="GhostRarity" id="RarityID" value="RarityID">
                 <option value="Any">Any</option>
                 <option value="Legendary">Legendary</option>
                 <option value="Exotic">Exotic</option>
             </select>
           </div>
-          <button type="submit" onClick = "readData.ejs">Search</button>
+          <button type="submit" search=option >Search</button>
         </form> 
     </div>
 </body>

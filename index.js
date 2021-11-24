@@ -4,6 +4,7 @@ const ejs = require("ejs");
 
 // Create express app
 const app = express();
+var bodyParser = require('body-parser')
 
 // Create a database connection configuration
 const db = mysql.createConnection({
@@ -25,6 +26,10 @@ db.connect((err) => {
 // Initialize Body Parser Middleware to parse data sent by users in the request object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // to parse HTML form data
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // Initialize ejs Middleware
 app.set("view engine", "ejs");
@@ -32,31 +37,32 @@ app.use("/public", express.static(__dirname + "/public"));
 
 // routes
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
 
 app.get("/readsearch", (req, res) => {
  
 //var empt = document.form1.text.value;
-var empt =  req.body.search;  
+empt =  req.body[search];  
 // document.getElementById("GunType");
-var GT = req.body.GunType;
+ GT = req.body[GunType];
 //var GunType = GT.text;
-var DT = req.body.DMGType;
+ DT = req.body[DMGType];
 //var DMGType = DT.text;
-var AC = req.body.ArmorClass
+ AC = req.body[ArmorClass];
 //var ArmorClass = AC.text;
-var AT = req.body.ArmorType;
+ AT = req.body[ArmorType];
 //var ArmorType = AT.text;
-var RI = req.body.RarityID;
+ RI = req.body[RarityID];
 //var RarityID = RI.text;
-var sql;
+ var sql;
+ CB = req.body[chk]; 
 
 //if (empt !== "" && checkemp == ture){
 
 //} else 
 if (empt == ""){
-  switch (checkbox.id){
+  switch (CB){
     case 'Armor':
       if (RI == 'Any' && AT != 'Any' && AC != 'Any'){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [AT, AC]//[ArmorType, ArmorClass]
@@ -108,12 +114,14 @@ if (empt == ""){
        checkemp = true;
       break;
   }
-} else{}
+} else{
+  sql = 'Select * FROM ghost, armor, weapon WHERE Name = ?'[CB]
+}
 db.query(sql, (err, result) => {
   if (err) {
     throw err;
   }
-  res.render("readData", {result });
+  res.render("readData", {data: result });
 });
 });
         

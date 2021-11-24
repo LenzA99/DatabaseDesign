@@ -43,7 +43,7 @@ CREATE TABLE `armor` (
 
 LOCK TABLES `armor` WRITE;
 /*!40000 ALTER TABLE `armor` DISABLE KEYS */;
-INSERT INTO `armor` VALUES ('Nezarec\'s Sin',1326,'Warlock','Exotic','Helmet');
+INSERT INTO `armor` VALUES ('Nezarec\'s' Sin',1326,'Warlock','Exotic','Helmet');
 /*!40000 ALTER TABLE `armor` ENABLE KEYS */;
 UNLOCK TABLES;
 
