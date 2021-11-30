@@ -1,4 +1,4 @@
-.DB{
+.container{
   color:black;
 }
 .GUNS{
@@ -61,7 +61,7 @@
 }
   
   /* Style the search field */
-  div.DB input[type=text] {
+  div.container input[type=text] {
     padding: 3px;
     font-size: 17px;
     border: 1px solid rgb(0, 0, 0);
@@ -73,7 +73,7 @@
   }
   
   /* Style the submit button */
-  div.DB button {
+  div.container button {
     float: left;
     width: 100px;
     padding: 5px;
@@ -86,13 +86,13 @@
     margin-top: 10px;
   }
   
-  div.DB button:hover 
+  div.container button:hover 
   {
     background: #434a50;
   }
   
   /* Clear floats */
-  div.DB::after {
+  div.container::after {
     content: "";
     clear: both;
     display: table;

@@ -4,7 +4,6 @@ const ejs = require("ejs");
 
 // Create express app
 const app = express();
-var bodyParser = require('body-parser')
 
 // Create a database connection configuration
 const db = mysql.createConnection({
@@ -26,10 +25,6 @@ db.connect((err) => {
 // Initialize Body Parser Middleware to parse data sent by users in the request object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // to parse HTML form data
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
 
 // Initialize ejs Middleware
 app.set("view engine", "ejs");
@@ -37,32 +32,32 @@ app.use("/public", express.static(__dirname + "/public"));
 
 // routes
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+res.render("index.ejs");
 });
 
-app.get("/readsearch", (req, res) => {
+app.post("/readsearch", (req, res) => {
  
 //var empt = document.form1.text.value;
-empt =  req.body[search];  
+empt = req.body.xsearch;  
 // document.getElementById("GunType");
- GT = req.body[GunType];
+ GT = req.body.GunType;
 //var GunType = GT.text;
- DT = req.body[DMGType];
+ DT = req.body.DMGType;
 //var DMGType = DT.text;
- AC = req.body[ArmorClass];
+ AC = req.body.ArmorClass;
 //var ArmorClass = AC.text;
- AT = req.body[ArmorType];
+ AT = req.body.ArmorType;
 //var ArmorType = AT.text;
- RI = req.body[RarityID];
+ RI = req.body.RarityID;
 //var RarityID = RI.text;
  var sql;
- CB = req.body[chk]; 
+ CB = req.body.chk; 
 
-//if (empt !== "" && checkemp == ture){
-
-//} else 
+if (empt != ""){
+  //sql = 'SELECT * FROM weapon WHERE Weapon_Name = 'Ager\'s Scepter';
+} else 
 if (empt == ""){
-  switch (CB){
+  switch (req.body.chk){
     case 'Armor':
       if (RI == 'Any' && AT != 'Any' && AC != 'Any'){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [AT, AC]//[ArmorType, ArmorClass]
@@ -82,7 +77,7 @@ if (empt == ""){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?' [AT, AC, RI]
       }
       break;
-    case 'Weapon':
+    case 'Gun':
       if (RI == 'Any' && DT != 'Any' && GT != 'Any'){
         sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ?' [GT, DT]
       }else if(RI != 'Any' && DT == 'Any' && GT != 'Any'){
@@ -118,6 +113,7 @@ if (empt == ""){
   sql = 'Select * FROM ghost, armor, weapon WHERE Name = ?'[CB]
 }
 db.query(sql, (err, result) => {
+  console.log(sql)
   if (err) {
     throw err;
   }
