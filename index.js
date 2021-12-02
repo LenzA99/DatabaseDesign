@@ -38,30 +38,31 @@ res.render("index.ejs");
 app.post("/readsearch", (req, res) => {
  
 //var empt = document.form1.text.value;
-empt = req.body.xsearch;  
+var empt = req.body.xsearch;  
 // document.getElementById("GunType");
- GT = req.body.GunType;
+var GT = req.body.GunType;
 //var GunType = GT.text;
- DT = req.body.DMGType;
+var DT = req.body.DMGType;
 //var DMGType = DT.text;
- AC = req.body.ArmorClass;
+var AC = req.body.ArmorClass;
 //var ArmorClass = AC.text;
- AT = req.body.ArmorType;
+var AT = req.body.ArmorType;
 //var ArmorType = AT.text;
- RI = req.body.RarityID;
+var RI = req.body.RarityID;
 //var RarityID = RI.text;
- var sql;
- CB = req.body.chk; 
+var sql;
+var CB = req.body.chk; 
 
 if (empt != ""){
-  //sql = 'SELECT * FROM weapon WHERE Weapon_Name = 'Ager\'s Scepter';
+  
+  sql = 'SELECT * FROM weapon WHERE Weapon_Name = ?';
 } else 
 if (empt == ""){
   switch (req.body.chk){
     case 'Armor':
       if (RI == 'Any' && AT != 'Any' && AC != 'Any'){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [AT, AC]//[ArmorType, ArmorClass]
-      }else if(RI != 'Any' && AT == 'Any' && ACt != 'Any'){
+      }else if(RI != 'Any' && AT == 'Any' && AC != 'Any'){
         sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?' [AC, RI]//[ArmorCLass, RarityID]
       }else if (RI != 'Any' && AT != 'Any' && AC == 'Any'){
         sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Rarity_ID = ?' [AT, RI]//[ArmorType, RarityID]
@@ -113,7 +114,7 @@ if (empt == ""){
   sql = 'Select * FROM ghost, armor, weapon WHERE Name = ?'[CB]
 }
 db.query(sql, (err, result) => {
-  console.log(sql)
+  console.log(CB)
   if (err) {
     throw err;
   }
