@@ -38,10 +38,10 @@ res.render("index.ejs");
  
 
 app.post("/readsearch", (req, res) => {
-  let data ={ name: req.body.xsearch};
+  let data ={ Weapon_Name: req.body.xsearch};
   let sql = 'SELECT * FROM weapon WHERE Weapon_Name = ?';
   let query = db.query(sql, data, (err, result) => {
-    console.log(CB)
+    console.log(sql)
     if (err) {
       throw err;
     }
