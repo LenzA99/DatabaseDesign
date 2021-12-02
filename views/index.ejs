@@ -24,11 +24,13 @@
         <form name="form1" action="/readsearch" method="post">
         <h3>Search</h3>
         <input type="text" class= "search" name="xsearch" placeholder="Item Name">
-        <button name="button1" value="SUBMIT" type="submit" onClick = "readData.ejs" search=option >Search</button>
+        <button name="button1" value="SUBMIT" class = b1 type="submit" onClick = "readData.ejs" search=option >Search</button>
+        
         </form>
-        <form name="form2" action="/readcheckbox" method="post"></form>
-        <h3>or</h3>
+        <form name="form2" action="/readcheckbox" method="post">
+        
         <div class=GUNS>
+            <h4>or</h4>
             <input type="radio" class="checkbox" id="chk" name="chk" value="Gun"/> Gun
             <label for="GunType" class="GT">Type:</label>
             <select name="GunType" id="GunType">
