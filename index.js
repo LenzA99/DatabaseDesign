@@ -35,93 +35,93 @@ app.get("/", (req, res) => {
 res.render("index.ejs");
 });
 
-app.post("/readsearch", (req, res) => {
  
-//var empt = document.form1.text.value;
-var empt = req.body.xsearch;  
-// document.getElementById("GunType");
-var GT = req.body.GunType;
-//var GunType = GT.text;
-var DT = req.body.DMGType;
-//var DMGType = DT.text;
-var AC = req.body.ArmorClass;
-//var ArmorClass = AC.text;
-var AT = req.body.ArmorType;
-//var ArmorType = AT.text;
-var RI = req.body.RarityID;
-//var RarityID = RI.text;
-var sql;
-var CB = req.body.chk; 
 
-if (empt != ""){
-  
-  sql = 'SELECT * FROM weapon WHERE Weapon_Name = ?';
-} else 
-if (empt == ""){
-  switch (req.body.chk){
+app.post("/readsearch", (req, res) => {
+  let data ={ name: req.body.xsearch};
+  let sql = 'SELECT * FROM weapon WHERE Weapon_Name = ?';
+  let query = db.query(sql, data, (err, result) => {
+    console.log(CB)
+    if (err) {
+      throw err;
+    }
+    res.render("readData", {data: result });
+  });
+});
+
+app.post("/readcheckbox", (req, res) => {
+//var empt = req.body.xsearch;  
+const GT = req.body.GunType;
+const DT = req.body.DMGType;
+const AC = req.body.ArmorClass;
+const AT = req.body.ArmorType;
+const RI = req.body.RarityID;
+const CB = req.body.chk;
+let sql;
+
+  switch (CB){
     case 'Armor':
       if (RI == 'Any' && AT != 'Any' && AC != 'Any'){
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?' [AT, AC]//[ArmorType, ArmorClass]
+       sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?'
       }else if(RI != 'Any' && AT == 'Any' && AC != 'Any'){
-        sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?' [AC, RI]//[ArmorCLass, RarityID]
+       sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?'
       }else if (RI != 'Any' && AT != 'Any' && AC == 'Any'){
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Rarity_ID = ?' [AT, RI]//[ArmorType, RarityID]
+       sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Rarity_ID = ?'
       }else if (RI == 'Any' && AT == 'Any' && AC != 'Any'){
-        sql = 'SELECT * FROM armor WHERE Class_ID = ?' [AC]
+       sql = 'SELECT * FROM armor WHERE Class_ID = ?'
       }else if (RI != 'Any' && AT == 'Any' && AC == 'Any'){
-        sql = 'SELECT * FROM armor WHERE Rarity_ID = ?' [RI]
+       sql = 'SELECT * FROM armor WHERE Rarity_ID = ?'
       }else if (RI == 'Any' && AT != 'Any' && AC == 'Any'){
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?' [AT]
+       sql = 'SELECT * FROM armor WHERE Armor_Type =  ?' 
       }else if(RI == 'Any' && AT == 'Any' && AC == 'Any'){
-        sql = 'SELECT * FROM armor'
+       sql = 'SELECT * FROM armor'
       }else{
-        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?' [AT, AC, RI]
+       sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ? , Rarity_ID = ?'
       }
       break;
     case 'Gun':
       if (RI == 'Any' && DT != 'Any' && GT != 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ?' [GT, DT]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ?'
       }else if(RI != 'Any' && DT == 'Any' && GT != 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Rarity_ID == ?' [GT, RI]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Rarity_ID == ?'
       }else if (RI != 'Any' && DT != 'Any' && GT == 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ? , Rarity_ID == ?' [DT, RI]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ? , Rarity_ID == ?'
       }else if (RI == 'Any' && DT == 'Any' && GT != 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?' [GT]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?'
       }else if (RI != 'Any' && DT == 'Any' && GT == 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Rarity_ID == ?' [RI]
+       sql = 'SELECT * FROM weapon WHERE Rarity_ID == ?' 
       }else if (RI == 'Any' && DT != 'Any' && GT == 'Any'){
-        sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ?' [DT]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type == ?'
       }else if(RI == 'Any' && DT == 'Any' && GT == 'Any'){
-        sql = 'SELECT * FROM weapon'
+       sql = 'SELECT * FROM weapon'
       }else{
-        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?' [GT, DT, RI]
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?'
 
       }
       break;
     case 'Ghost':
       if (RI == 'Any'){
-        sql = 'SELECT * FROM ghost'
+      sql = 'SELECT * FROM ghost'
       }
       else{
-      sql = 'SELECT * FROM ghost WHERE Rarity_ID == ?' [RI]
+       sql = 'SELECT * FROM ghost WHERE Rarity_ID == ?'
       }
       break;
     default:
        checkemp = true;
       break;
   }
-} else{
-  sql = 'Select * FROM ghost, armor, weapon WHERE Name = ?'[CB]
-}
-db.query(sql, (err, result) => {
+  let query = db.query(sql, data, (err, result) => {
   console.log(CB)
   if (err) {
     throw err;
   }
   res.render("readData", {data: result });
 });
-});
         
+});
+
+
 
 
 /*app.get("/readsearch", (req, res) => {
