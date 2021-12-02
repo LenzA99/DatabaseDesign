@@ -9,7 +9,7 @@ const app = express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "GEMMAMINI97",
+  password: "2206Snow!!!!",
   database: "destinygearinfo", // comment out if running example 1
 });
 
@@ -35,13 +35,16 @@ app.get("/", (req, res) => {
 res.render("index.ejs");
 });
 
- 
+let sql;
+let data;
+let query;
 
 app.post("/readsearch", (req, res) => {
-  let data ={ Weapon_Name: req.body.xsearch};
-  let sql = 'SELECT * FROM weapon WHERE Weapon_Name = ?';
-  let query = db.query(sql, data, (err, result) => {
+   data = {Name:req.body.xsearch};
+   sql = 'SELECT * FROM weapon WHERE Name = ?';
+  query = db.query(sql, data, (err, result) => {
     console.log(sql)
+    console.log(data)
     if (err) {
       throw err;
     }
@@ -57,12 +60,12 @@ const AC = req.body.ArmorClass;
 const AT = req.body.ArmorType;
 const RI = req.body.RarityID;
 const CB = req.body.chk;
-let sql;
 
   switch (CB){
     case 'Armor':
       if (RI == 'Any' && AT != 'Any' && AC != 'Any'){
        sql = 'SELECT * FROM armor WHERE Armor_Type =  ?, Class_ID = ?'
+       data = {Armor_Type: req.body.Armor_Type, Class_ID:req.body.ArmorClass};
       }else if(RI != 'Any' && AT == 'Any' && AC != 'Any'){
        sql = 'SELECT * FROM armor WHERE Class_ID = ? , Rarity_ID = ?'
       }else if (RI != 'Any' && AT != 'Any' && AC == 'Any'){
@@ -96,7 +99,6 @@ let sql;
        sql = 'SELECT * FROM weapon'
       }else{
        sql = 'SELECT * FROM weapon WHERE Weapon_Type ==  ?, Weapon_Dmg_Type == ? , Rarity_ID == ?'
-
       }
       break;
     case 'Ghost':
@@ -111,18 +113,14 @@ let sql;
        checkemp = true;
       break;
   }
-  let query = db.query(sql, data, (err, result) => {
+  query = db.query(sql, data, (err, result) => {
   console.log(CB)
   if (err) {
     throw err;
   }
   res.render("readData", {data: result });
 });
-        
-});
-
-
-
+});    
 
 /*app.get("/readsearch", (req, res) => {
   let sql = `SELECT * FROM weapon, armor, ghost`;

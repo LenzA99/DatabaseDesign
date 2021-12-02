@@ -19,8 +19,7 @@
     <div class="container">
       <main>
         <h2>
-          This page contains the demo of the four CRUD operations executed
-          against a Full Stack Web App
+          This page contains the destiny database search results.
         </h2>
         <p>The application was created using the following technologies</p>
         <ul>
@@ -37,14 +36,24 @@
     <div class="container">
       <h3>CRUD ops - READ</h3>
       <h4>Read Data from The Database</h4>
-      <div class="card card-body">
-        <ul class="list-group">
-          <%data.forEach((item)=>{%>
-          <li class="list-group-item">
-            Name: <%=Weapon_Name%> &nbsp; Damage Type: <%= item.name%> &nbsp; rarity:
-            <%=Rarity_ID%>
-          </li>
-          <%});%>
+      <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Weapon_Pwr_Max</th>
+            <th>Weapon_Dmg_Typ</th>
+            <th>Weapon_Type</th>
+            <th>Rarity_ID</th>
+        </tr>
+        
+        <%data.forEach((item)=>{%>
+        <tr>
+            <td><%=Name; %></td>
+            <td><%=Weapon_Pwr_Max%></td>
+            <td><%=Weapon_Dmg_Typ%></td>
+            <td><%=Weapon_Type%></td>
+            <td><%=Rarity_ID%></td>
+        </tr>
+        <%});%>
         </ul>
       </div>
     </div>
