@@ -164,7 +164,6 @@ app.post("/insertnewitem", (req, res) => {
 app.post("/updateitem", (req, res) => {
   sql = `UPDATE itemnames SET Power = '${req.body.UpdatePower}' WHERE Name = '${req.body.UpdateName}'`
  query = db.query(sql, (err, result) => {
-   console.log(sql)
    if (err) {
      throw err;
    }
@@ -175,7 +174,6 @@ app.post("/updateitem", (req, res) => {
 app.post("/deleteitem", (req, res) => {
   sql = `DELETE FROM itemnames WHERE Name = '${req.body.DeleteItem}'`
  query = db.query(sql, (err, result) => {
-   console.log(sql)
    if (err) {
      throw err;
    }
