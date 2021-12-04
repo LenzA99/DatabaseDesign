@@ -48,7 +48,7 @@ app.post("/readsearch", (req, res) => {
     if (err) {
       throw err;
     }
-    res.render("readData", {data: result });
+    res.render("readData", {data});
   });
 });
 

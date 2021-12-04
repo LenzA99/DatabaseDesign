@@ -45,15 +45,26 @@
             <th>Rarity_ID</th>
         </tr>
         
-        <%data.forEach((item)=>{%>
-        <tr>
-            <td><%=Name; %></td>
-            <td><%=Weapon_Pwr_Max%></td>
-            <td><%=Weapon_Dmg_Typ%></td>
-            <td><%=Weapon_Type%></td>
-            <td><%=Rarity_ID%></td>
-        </tr>
-        <%});%>
+        <% if(data.length){
+ 
+          for(var i = 0; i< data.length; i++) {%>  
+          <tr>
+            <th scope="row"><%= (i+1) %></th>
+            <td><%= data[i].Name%></td>
+            <td><%= data[i].Weapon_Pwr_Max%></td>
+            <td><%= data[i].Weapon_Dmg_Typ%></td>
+            <td><%= data[i].Weapon_Type%></td>
+            <td><%= data[i].Rarity_ID%></td>
+            <td>                                            
+           </td>
+          </tr>
+          <% }
+                   
+           }else{ %>
+               <tr>
+                  <td colspan="3">No user</td>
+               </tr>
+            <% } %>    
         </ul>
       </div>
     </div>
