@@ -112,11 +112,10 @@ let data3;
       break;
     case 'Ghost':
       if (GOR == 'Any'){
-      sql = 'SELECT * FROM ghost'
+       sql = 'SELECT * FROM ghost'
       }
       else{
-       sql = 'SELECT * FROM ghost WHERE ?'
-       data = {Rarity_ID: req.body.GhostRarity};
+       sql = `SELECT * FROM ghost WHERE Rarity_ID = '${req.body.ArmorRarity}'`
       }
       break;
     default:
