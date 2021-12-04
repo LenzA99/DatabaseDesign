@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Destiny Database
+    </title>
+    <link rel="stylesheet" href="DestinyStyles.css">
+    <script src="DestinyDBretrieval.js"></script>
+    
+</head>
+<body>
+    <h1>
+        Welcome to the Destiny 2 Database!
+    </h1>
+    <h2>
+        Please select search criteria
+    </h2>
+    <div class = "DB" id = "DBRapp">
+        <form action="searchdb.php" method="post">
+        <h3>Search</h3>
+        <input type="text" class="search" placeholder="Item Name" value="">
+        <button type="submit">Submit</button>
+        </form> 
+    </div>
+    <div id="results">
+    <?php
+    // (B) PROCESS SEARCH WHEN FORM SUBMITTED
+    if (isset($_POST["search"])) {
+    // (B1) SEARCH FOR USERS
+    require "searchdb.php";
+    // (B2) DISPLAY RESULTS
+    if (count($results) > 0) { foreach ($results as $r) {
+        printf("<div>%s - %s</div>", $r["Armor_Name"] or $r["Weapon_Name"] or $r['Ghost_Name']);
+    }} else { echo "No results found"; }
+    }
+    ?>
+    </div>
+</body>
+
+</html>

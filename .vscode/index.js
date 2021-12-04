@@ -62,52 +62,57 @@ const AR = req.body.ArmorRarity;
 const GOR = req.body.GhostRarity;
 const GUR = req.body.WeaponRarity;
 const CB = req.body.chk;
-const data2 = 'AND';
-let data3;
 
   switch (CB){
-      case 'Armor':
-        if (AR == 'Any' && AT != 'Any' && AC != 'Any'){
-         sql = `SELECT * FROM armor WHERE Type = '${req.body.ArmorType}' AND Class_ID ='${req.body.ArmorClass}'`
-        }else if(AR != 'Any' && AT == 'Any' && AC != 'Any'){
-         sql = `SELECT * FROM armor WHERE Rarity_ID = '${req.body.ArmorRarity}' AND Class_ID ='${req.body.ArmorClass}'`
-        }else if (AR != 'Any' && AT != 'Any' && AC == 'Any'){
-         sql = `SELECT * FROM armor WHERE Rarity_ID = '${req.body.ArmorRarity}' AND Type ='${req.body.ArmorType}'`
-        }else if (AR == 'Any' && AT == 'Any' && AC != 'Any'){
-         sql = `SELECT * FROM armor WHERE Class_ID ='${req.body.ArmorClass}'`
-        }else if (AR != 'Any' && AT == 'Any' && AC == 'Any'){
-         sql = `SELECT * FROM armor WHERE Rarity_ID = '${req.body.ArmorRarity}'`
-        }else if (AR == 'Any' && AT != 'Any' && AC == 'Any'){
-         sql = `SELECT * FROM armor WHERE Type = '${req.body.Armor_Type}'` 
-        }else if(AR == 'Any' && AT == 'Any' && AC == 'Any'){
-         sql = 'SELECT * FROM armor;'
-        }else{
-          sql = `SELECT * FROM armor WHERE Rarity_ID = '${req.body.ArmorRarity}' AND Type ='${req.body.ArmorType}' AND Class_ID = '${req.body.ArmorClass}'`
-        }
-        break;
+    case 'Armor':
+      if (AR == 'Any' && AT != 'Any' && AC != 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Type: req.body.Armor_Type, Class_ID:req.body.ArmorClass};
+      }else if(AR != 'Any' && AT == 'Any' && AC != 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Rarity_ID: req.body.ArmorRarity, Class_ID:req.body.ArmorClass};
+      }else if (AR != 'Any' && AT != 'Any' && AC == 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Rarity_ID: req.body.ArmorRarity, Type: req.body.Armor_Type};
+      }else if (AR == 'Any' && AT == 'Any' && AC != 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Class_ID:req.body.ArmorClass};
+      }else if (AR != 'Any' && AT == 'Any' && AC == 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Rarity_ID: req.body.ArmorRarity};
+      }else if (AR == 'Any' && AT != 'Any' && AC == 'Any'){
+       sql = 'SELECT * FROM armor WHERE ?' 
+       data = {Type: req.body.Armor_Type};
+      }else if(AR == 'Any' && AT == 'Any' && AC == 'Any'){
+       sql = 'SELECT * FROM armor;'
+      }else{
+       sql = 'SELECT * FROM armor WHERE ?'
+       data = {Rarity_ID: req.body.ArmorRarity, Type: req.body.Armor_Type, Class_ID:req.body.ArmorClass};
+      }
+      break;
     case 'Gun':
       if (GUR == 'Any' && DT != 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type =  ? AND Weapon_Dmg_Type = ?'
        data = {Type: req.body.DMGType, Class_ID:req.body.GunType};
       }else if(GUR != 'Any' && DT == 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type =  ? AND Rarity_ID = ?'
        data = {Rarity_ID:req.body.WeaponRarity, Class_ID: req.body.GunType};
       }else if (GUR != 'Any' && DT != 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type = ? AND Rarity_ID = ?'
        data = {Rarity_ID:req.body.WeaponRarity, Type: req.body.DMGType};
       }else if (GUR == 'Any' && DT == 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type = ?'
        data = {Class_ID: req.body.GunType};
       }else if (GUR != 'Any' && DT == 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?' 
+       sql = 'SELECT * FROM weapon WHERE Rarity_ID = ?' 
        data = {Rarity_ID:req.body.WeaponRarity};
       }else if (GUR == 'Any' && DT != 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Dmg_Type = ?'
        data = {Type: req.body.DMGType};
       }else if(GUR == 'Any' && DT == 'Any' && GT == 'Any'){
        sql = 'SELECT * FROM weapon'
       }else{
-       sql = 'SELECT * FROM weapon WHERE ?'
+       sql = 'SELECT * FROM weapon WHERE Weapon_Type =  ? AND Weapon_Dmg_Type = ? AND Rarity_ID = ?'
        data = {Type: req.body.DMGType, Rarity_ID:req.body.WeaponRarity, Class_ID:req.body.GunType};
       }
       break;
@@ -116,7 +121,7 @@ let data3;
       sql = 'SELECT * FROM ghost'
       }
       else{
-       sql = 'SELECT * FROM ghost WHERE ?'
+       sql = 'SELECT * FROM ghost WHERE Rarity_ID = ?'
        data = {Rarity_ID: req.body.GhostRarity};
       }
       break;

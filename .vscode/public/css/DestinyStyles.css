@@ -1,0 +1,151 @@
+.container{
+  color:black;
+}
+.GUNS{
+  margin-bottom: 10px;
+  padding-top: 30px ;
+  
+}
+.b1{
+  margin-top: 50px;
+  padding-left: 5px;
+  margin-left: 5px;
+  position: relative;
+}
+h4{
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-left: 10px;
+  margin-left: 30px;
+}
+
+.ARMOR{
+  margin-bottom: 10px;
+}
+.GHOSTS{
+  margin-bottom: 10px;
+}
+.GT{
+  padding: 60px 9px 80px 34px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.DT{
+  padding: 60px 0px 80px 23px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.WR{
+  padding: 60px 1px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AC{
+  padding: 60px 6px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AT{
+  padding: 60px 58px 80px 22px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.GR{
+  padding: 60px 0px 80px 24px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+.AR{
+  padding: 60px 0px 80px 20px;
+  width: 95%;
+  max-width: 80px;
+  height: 325px;
+  border-radius: 5px;
+}
+  
+  /* Style the search field */
+  div.container input[type=text] {
+    padding: 3px;
+    font-size: 17px;
+    border: 1px solid rgb(0, 0, 0);
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+    margin-right: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the submit button */
+  div.container button {
+    float: left;
+    width: 100px;
+    padding: 10px;
+    background: #bdbdbd;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  div.container button:hover 
+  {
+    background: #434a50;
+  }
+  
+  /* Clear floats */
+  div.container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  /*
+  input[type = "radio"]
+  {
+    display: none;
+  }
+  input[type = "radio"] + label
+  {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    position: relative;
+
+  }
+  input[type = "radio"] :checked + label
+  {
+    background-color: #212121;
+  }
+  input[type = "radio"] :checked + label::after
+  {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 5px;
+    border: 1px solid #fff;
+    left: 0px;
+    right: 0px;
+    top: -6px;
+    bottom: 0px;
+    margin: auto;
+    transform: rotate(45deg);
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }*/
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Destiny Database
+    </title>
+    <link rel="stylesheet" href="../public/css/DestinyStyles.css">
+</head>
+<body>
+    <h1>
+        Welcome to the Destiny 2 Database!
+    </h1>
+    <h2>
+        Please select search criteria
+    </h2>
+    <div class = "DB" id = "DBRapp">
+        <form action="/readsearch" method="get" id="CRUDread">
+        <h3>Search</h3>
+        <input type="text" class= "search" name="search" placeholder="Item Name">
+        <h3>or</h3>
+        <div class=GUNS>
+            <input type="radio" class="checkbox" id="chkGun" name="chk" value="Gun"/> Gun
+            <label for="GunType" class="GT">Type:</label>
+            <select name="GunType" id="Type-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Auto Rifle">Auto Rifle</option>
+                <option value="Hand Cannon">Hand Cannon</option>
+                <option value="Scout Rifle">Scout Rifle</option>
+                <option value="Pulse Rifle">Pulse Rifle</option>
+                <option value="Sniper Rifle">Sniper Rifle</option>
+                <option value="Fusion Rifle">Fusion Rifle</option>
+                <option value="Linear Fusion Rifle">Linear Fusion Rifle</option>
+                <option value="Submachine Gun">Submachine Gun</option>
+                <option value="Machine Gun">Machine Gun</option>
+                <option value="Trace Rifle">Trace Rifle</option>
+                <option value="Grenade Launcher">Grenade Launcher</option>
+                <option value="Heavy Grenade Launcher">Heavy Grenade Launcher</option>
+                <option value="Rocket Launcher">Rocket Launcher</option>
+                <option value="Shotgun">Shotgun</option>
+                <option value="Sidearm">Sidearm</option>
+                <option value="Bow">Bow</option>
+                <option value="Sword">Sword</option>
+            </select>
+            <label for="DMGType" class="DT">Damage Type:</label>
+            <select name="DMGType" id="Damage-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Kinetic">Kinetic</option>
+                <option value="Void">Void</option>
+                <option value="Arc">Arc</option>
+                <option value="Stasis">Stasis</option>
+                <option value="Solar">Solar</option>
+            </select>
+            <label for="WeaponRarity" class="WR">Rarity:</label>
+            <select name="WeaponRarity" id="Rarity-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Legendary">Legendary</option>
+                <option value="Exotic">Exotic</option>
+            </select>
+          </div>
+          <div class="ARMOR">
+            <input type="radio" class="checkbox" id="chkArmor" name="chk" value="Armor"/> Armor
+            <label for="ArmorClass" class="AC">Class:</label>
+            <select name="ArmorClass" id="Class-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Hunter">Hunter</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Titan">Titan</option>
+            </select>
+            <label for="ArmorType" class="AT">Type:</label>
+            <select name="ArmorType" id="Type-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Helmet">Helmet</option>
+                <option value="Chest">Chest</option>
+                <option value="Legs">Legs</option>
+                <option value="Gauntlets">Gauntlets</option>
+                <option value="ClassItem">Class Item</option>
+            </select>
+            <label for="ArmorRarity" class="AR">Rarity:</label>
+            <select name="ArmorRarity" id="Rarity-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Legendary">Legendary</option>
+                <option value="Exotic">Exotic</option>
+            </select>
+          </div>
+          <div class="GHOSTS">
+            <input type="radio" class="checkbox" id="chkGhost" name="chk" value="Ghost"/> Ghost
+            <label for="GhostRarity" class="GR">Rarity:</label>
+            <select name="GhostRarity" id="Rarity-Select">
+                <option value="">--Please choose an option--</option>
+                <option value="Any">Any</option>
+                <option value="Legendary">Legendary</option>
+                <option value="Exotic">Exotic</option>
+            </select>
+          </div>
+          <button type="submit" onClick = "DestinyResluts.html">Submit</button>
+        </form> 
+    </div>
+</body>
+
+</html>
