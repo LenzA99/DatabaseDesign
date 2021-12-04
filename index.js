@@ -115,7 +115,7 @@ let data3;
        sql = 'SELECT * FROM ghost'
       }
       else{
-       sql = `SELECT * FROM ghost WHERE Rarity_ID = '${req.body.ArmorRarity}'`
+       sql = `SELECT * FROM ghost WHERE Rarity_ID = '${req.body.GhostRarity}'`
       }
       break;
     default:

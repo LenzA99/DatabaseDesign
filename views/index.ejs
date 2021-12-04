@@ -105,6 +105,36 @@
           </div>
           <button name="button2" type="submit" value="SUBMIT" onClick = "readData.ejs" search=option >Search</button>
         </form>
+        <form name="form3" action="/insertnewitem" method="post">
+            <h3>INSERT ITEM</h3>
+            <div class=GUNINPUT>
+                <input type="radio" class="checkbox" id="chk" name="chk2" value="Gun"/> Gun
+                <label for="GunName" class="GT">Name:</label>
+                <input type="text" class= "input" name="IGunName" placeholder="Item Name">
+                <input type="text" class= "input" name="IGunClass" placeholder="Gun Class">
+                <input type="text" class= "input" name="IGunPower" placeholder="Max Power Level">
+                <input type="text" class= "input" name="IGunRarity" placeholder="Legendary or Exotic">
+                <input type="text" class= "input" name="IGunType" placeholder="Void, Arc, Solar or Stasis">
+            </div>
+            <div class=ARMORINPUT>
+                <h4>or</h4>
+                <input type="radio" class="checkbox" id="chk" name="chk2" value="Armor"/> Armor
+                <label for="ArmorName" class="GT">Name:</label>
+                <input type="text" class= "input" name="IArmorName" placeholder="Item Name">
+                <input type="text" class= "input" name="IArmorClass" placeholder="Armor Class">
+                <input type="text" class= "input" name="IArmorPower" placeholder="Max Power Level">
+                <input type="text" class= "input" name="IArmorRarity" placeholder="Legendary or Exotic">
+                <input type="text" class= "input" name="IArmorType" placeholder="Helmet, Legs, Gauntlets, Chest, Class Item">
+            </div>
+            <div class=GHOSTINPUT>
+                <h4>or</h4>
+                <input type="radio" class="checkbox" id="chk" name="chk2" value="Ghost"/> Ghost
+                <label for="GhostName" class="GT">Name:</label>
+                <input type="text" class= "input" name="IGhostName" placeholder="Item Name">
+                <input type="text" class= "input" name="IGhostRarity" placeholder="Legendary or Exotic">
+            </div>                
+            <button name="button3" type="submit" value="SUBMIT" >Submit</button>
+            </form>
     </div>
 </body>
 
