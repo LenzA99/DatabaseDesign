@@ -87,28 +87,27 @@ let data3;
         break;
     case 'Gun':
       if (GUR == 'Any' && DT != 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Type: req.body.DMGType, Class_ID:req.body.GunType};
+       sql = `SELECT * FROM weapon WHERE Type = '${req.body.DMGType}' AND Class_ID = '${req.body.GunType}' `
       }else if(GUR != 'Any' && DT == 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Rarity_ID:req.body.WeaponRarity, Class_ID: req.body.GunType};
+       sql = `SELECT * FROM weapon WHERE Rarity_ID = '${req.body.WeaponRarity}' AND Class_ID = '${req.body.GunType}'`
+       
       }else if (GUR != 'Any' && DT != 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Rarity_ID:req.body.WeaponRarity, Type: req.body.DMGType};
+       sql = `SELECT * FROM weapon WHERE Rarity_ID = '${req.body.WeaponRarity}'AND Type = '${req.body.DMGType}'`
+       
       }else if (GUR == 'Any' && DT == 'Any' && GT != 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Class_ID: req.body.GunType};
+       sql = `SELECT * FROM weapon WHERE Class_ID = '${req.body.GunType}'`
+       
       }else if (GUR != 'Any' && DT == 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?' 
-       data = {Rarity_ID:req.body.WeaponRarity};
+       sql = `SELECT * FROM weapon WHERE Rarity_ID = '${req.body.WeaponRarity}'`
+       
       }else if (GUR == 'Any' && DT != 'Any' && GT == 'Any'){
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Type: req.body.DMGType};
+       sql = `SELECT * FROM weapon WHERE Type = '${req.body.DMGType}'`
+       
       }else if(GUR == 'Any' && DT == 'Any' && GT == 'Any'){
        sql = 'SELECT * FROM weapon'
       }else{
-       sql = 'SELECT * FROM weapon WHERE ?'
-       data = {Type: req.body.DMGType, Rarity_ID:req.body.WeaponRarity, Class_ID:req.body.GunType};
+       sql = `SELECT * FROM weapon WHERE Type = '${req.body.DMGType}' AND Rarity_ID = '${req.body.WeaponRarity}' AND Class_ID = '${req.body.GunType}'`
+       
       }
       break;
     case 'Ghost':
