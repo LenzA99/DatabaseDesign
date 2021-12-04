@@ -18,6 +18,13 @@ h4{
   padding-left: 10px;
   margin-left: 30px;
 }
+h5{
+  margin-top: 50px;
+  padding-top: 30px;
+  padding-left: 5px;
+
+  font-size: 17px;
+}
 
 .ARMOR{
   margin-bottom: 10px;
@@ -54,7 +61,7 @@ h4{
   border-radius: 5px;
 }
 .AT{
-  padding: 60px 58px 80px 22px;
+  padding: 60px 0px 80px 23px;
   width: 95%;
   max-width: 80px;
   height: 325px;
