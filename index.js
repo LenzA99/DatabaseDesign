@@ -40,11 +40,8 @@ let data;
 let query;
 
 app.post("/readsearch", (req, res) => {
-   sql = 'SELECT * FROM weapon WHERE ?';
-   data = {Name:req.body.xsearch};
-  query = db.query(sql, data, (err, result) => {
-    console.log(sql)
-    console.log(data)
+   sql = `SELECT * FROM itemnames WHERE Name ='${req.body.xsearch}'`;
+  query = db.query(sql, (err, result) => {
     if (err) {
       throw err;
     }
@@ -138,7 +135,53 @@ let data3;
   }
   res.render("readData", {data: result });
 });}
-});    
+});
+
+app.post("/insertnewitem", (req, res) => {
+  const CB2 = req.body.chk2;
+  switch(CB2){
+    case 'Armor':
+     sql = `insert into armor set Name = '${req.body.IArmorName}', Power = '${req.body.IArmorPower}', Type = '${req.body.IArmorType}', Class_ID = '${req.body.IArmorClass}', Rarity_ID = '${req.body.IArmorRarity}'`;
+    break;
+    case 'Gun':
+      sql = `insert into weapon set Name = '${req.body.IGunName}', Power = '${req.body.IGunPower}', Type = '${req.body.IGunType}', Class_ID = '${req.body.IGunClass}', Rarity_ID = '${req.body.IGunRarity}'`;
+    break;
+    case 'Ghost':
+      sql = `insert into ghost set Name = '${req.body.IGhostName}', Rarity_ID = '${req.body.IGhostRarity}'`;
+    break;
+    default:
+      checkemp = true;
+    break;
+  }
+ query = db.query(sql, (err, result) => {
+   if (err) {
+     throw err;
+   }
+   res.send(`Item entry was added in the db...`);
+ });
+});
+
+app.post("/updateitem", (req, res) => {
+  sql = `UPDATE itemnames SET Power = '${req.body.UpdatePower}' WHERE Name = '${req.body.UpdateName}'`
+ query = db.query(sql, (err, result) => {
+   console.log(sql)
+   if (err) {
+     throw err;
+   }
+   res.send(`Item entry was updated in the db...`);
+ });
+});
+
+app.post("/deleteitem", (req, res) => {
+  sql = `DELETE FROM itemnames WHERE Name = '${req.body.DeleteItem}'`
+ query = db.query(sql, (err, result) => {
+   console.log(sql)
+   if (err) {
+     throw err;
+   }
+   res.send(`Item entry was deleted in the db...`);
+ });
+});
 
 /*app.get("/readsearch", (req, res) => {
   let sql = `SELECT * FROM weapon, armor, ghost`;
