@@ -26,7 +26,7 @@ CREATE TABLE `armor` (
   `Name` varchar(45) NOT NULL,
   `Power_Max` double DEFAULT NULL,
   `Type` varchar(45) DEFAULT NULL,
-  `Class` varchar(45) DEFAULT NULL,
+  `Class_ID` varchar(45) DEFAULT NULL,
   `Rarity_ID` varchar(45) NOT NULL,
   PRIMARY KEY (`Name`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -80,7 +80,7 @@ CREATE TABLE `weapon` (
   `Name` varchar(45) NOT NULL,
   `Power_Max` double DEFAULT NULL,
   `Type` varchar(45) DEFAULT NULL,
-  `Class` varchar(45) DEFAULT NULL,
+  `Class_ID` varchar(45) DEFAULT NULL,
   `Rarity_ID` varchar(45) NOT NULL,
   PRIMARY KEY (`Name`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
