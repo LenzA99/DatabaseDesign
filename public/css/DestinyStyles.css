@@ -12,6 +12,13 @@
   margin-left: 5px;
   position: relative;
 }
+.b2{
+  margin-top: 50px;
+  padding-left: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
 h4{
   margin-top: 50px;
   padding-top: 30px;
@@ -25,6 +32,14 @@ h5{
 
   font-size: 17px;
 }
+h6{
+  margin-top: 170px;
+  padding-top: 30px;
+  padding-left: 5px;
+
+  font-size: 17px;
+}
+
 
 .ARMOR{
   margin-bottom: 10px;
