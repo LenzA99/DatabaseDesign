@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `armor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor` (
-   `Name` varchar(45) NOT NULL,
+  `Name` varchar(45) NOT NULL,
   `Power_Max` double DEFAULT NULL,
   `Type` varchar(45) DEFAULT NULL,
   `Class` varchar(45) DEFAULT NULL,
@@ -131,7 +131,7 @@ DROP TABLE IF EXISTS `itemnames`;
 
 CREATE TABLE `itemnames` (
   `Name` varchar(100) DEFAULT NULL,
-  `Power` int DEFAULT NULL,
+  `Power_Max` int DEFAULT NULL,
   `Type` varchar(100) DEFAULT NULL,
   `Class_ID` varchar(100) DEFAULT NULL,
   `Rarity_ID` varchar(100) DEFAULT NULL
@@ -139,7 +139,8 @@ CREATE TABLE `itemnames` (
 
 
 --
--- Dumping data for table `itemnames`
+-- Dumping data for table `itemnames`LOCK TABLES `ghost` WRITE;
+/*!40000 ALTER TABLE `ghost` DISABLE KEYS */;
 --
 
 LOCK TABLES `itemnames` WRITE;
