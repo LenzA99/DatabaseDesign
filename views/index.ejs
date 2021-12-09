@@ -20,6 +20,7 @@
     <h2>
         Please select search criteria
     </h2>
+    <!-- Search field for textbox -->
     <div class = "container" id = "DBRapp">
         <form name="form1" action="/readsearch" method="post">
         <h3>Search</h3>
@@ -27,6 +28,8 @@
         <button name="button1" value="SUBMIT" class = b1 type="submit" onClick = "readData.ejs" search=option >Search</button>
         
         </form>
+
+        <!-- Search field for checkboxes and drop down menues -->
         <form name="form2" action="/readcheckbox" method="post">
         
         <div class=GUNS>
@@ -105,6 +108,8 @@
           </div>
           <button name="button2" type="submit" value="SUBMIT" onClick = "readData.ejs" search=option >Search</button>
         </form>
+
+        <!-- Setup for inserting item into database with checkboxes and text field inputs -->
         <form name="form3" action="/insertnewitem" method="post">
             <h5>INSERT ITEM</h5>
             <div class=GUNINPUT>
@@ -135,6 +140,8 @@
             </div>                
             <button name="button3" type="submit" class = b1 value="SUBMIT" >Submit</button>
             </form>
+
+            <!-- Setup for updating item values from the database with textboxes -->
             <form name="form4" action="/updateitem" method="post">
                 <h6>UPDATE ITEM</h6>
                 <div class=UPDATE>
@@ -143,6 +150,8 @@
                 </div>
                 <button name="button4" type="submit" class = b2 value="SUBMIT" >Submit</button>
             </form>
+
+            <!-- Setup for deleting items from the database with textboxes -->
             <form name="form5" action="/deleteitem" method="post">
                 <h6>DELETE ITEM</h6>
                 <div class=UPDATE>
