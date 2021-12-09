@@ -9,7 +9,7 @@ const app = express();
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "GEMMAMINI97",
+  password: "2206Snow!!!!",
   database: "destinygearinfo", // comment out if running example 1
 });
 
@@ -39,6 +39,7 @@ let sql;
 let data;
 let query;
 
+// Searches from the database and outputs results with a text box
 app.post("/readsearch", (req, res) => {
    sql = `SELECT * FROM itemnames WHERE Name ='${req.body.xsearch}'`;
   query = db.query(sql, (err, result) => {
@@ -49,8 +50,8 @@ app.post("/readsearch", (req, res) => {
   });
 });
 
-app.post("/readcheckbox", (req, res) => {
-//var empt = req.body.xsearch;  
+// Searches from the database and outputs results through checkbox and drop down menu
+app.post("/readcheckbox", (req, res) => { 
 const GT = req.body.GunType;
 const DT = req.body.DMGType;
 const AC = req.body.ArmorClass;
@@ -137,6 +138,7 @@ let data3;
 });}
 });
 
+//Inserts a new item into database
 app.post("/insertnewitem", (req, res) => {
   const CB2 = req.body.chk2;
   switch(CB2){
@@ -161,6 +163,7 @@ app.post("/insertnewitem", (req, res) => {
  });
 });
 
+//updates a specific column in the database
 app.post("/updateitem", (req, res) => {
   sql = `UPDATE itemnames SET Power = '${req.body.UpdatePower}' WHERE Name = '${req.body.UpdateName}'`
  query = db.query(sql, (err, result) => {
@@ -171,6 +174,7 @@ app.post("/updateitem", (req, res) => {
  });
 });
 
+//deletes an item from the database
 app.post("/deleteitem", (req, res) => {
   sql = `DELETE FROM itemnames WHERE Name = '${req.body.DeleteItem}'`
  query = db.query(sql, (err, result) => {
@@ -181,15 +185,6 @@ app.post("/deleteitem", (req, res) => {
  });
 });
 
-/*app.get("/readsearch", (req, res) => {
-  let sql = `SELECT * FROM weapon, armor, ghost`;
-  db.query(sql, (err, result) => {
-    if (err) {
-      throw err;
-    }
-    res.render("readData", { data: result });
-  });
-});*/
 
 // Setup server ports
 const PORT = process.env.PORT || 3000;
